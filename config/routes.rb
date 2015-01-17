@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
 
+
+
   resources :users #gives us all user_paths
+  resources :ideas
+  resources :categories
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

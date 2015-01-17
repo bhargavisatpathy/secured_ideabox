@@ -1,0 +1,13 @@
+<h1 id="admin"> Welcome <%= @user.username %> </h1>
+
+<div id="category_form">
+  <%= form_for(:category, url: categories_path) do |f|%>
+  <p>
+    <%= f.label :category%><br/>
+    <%= f.text_field :name %>
+  </p>
+  <%= f.submit "Create Category" %>
+  <% end %>
+</div>
+
+<h2> All categories</h2>
