@@ -70,21 +70,4 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
       assert page.has_content?("Welcome example")
     end
   end
-
-  
-
-  # test "a registered user can create idea" do
-  #   ApplicationController.any_instance.stubs(:current_user).returns(user)
-  #   visit user_path(user)
-  #   within("#banner") do
-  #     assert page.has_content?("Welcome example")
-  #   end
-  #   fill_in "idea[title]", with: "title1"
-  #   fill_in "idea[description]", with: "This is an idea"
-  #   click_button "Create"
-  #   within("#flash_notice") do
-  #     assert page.has_content?("You created a new idea")
-  #   end
-  # end
-
 end

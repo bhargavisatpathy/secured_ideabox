@@ -1,0 +1,18 @@
+<h1 id="admin"> Welcome Admin </h1>
+<div id="category_form">
+  <%= form_for(:category, url: categories_path) do |f|%>
+    <p>
+      <%= f.label :name%><br/>
+      <%= f.text_field :name %>
+    </p>
+    <%= f.submit "Create Category" %>
+  <% end %>
+  <%= link_to "Back", user_path(current_user) %>
+</div>
+<% if @categories != nil %>
+  <h2> All categories</h2>
+  <%= render partial: 'categories/category', collection: @categories %>
+<% end %>
+
+<!--<% category_names = @categories.map {|category| [category.name]} %>-->
+<!--<%= select_tag 'categories', options_for_select(category_names) %>-->

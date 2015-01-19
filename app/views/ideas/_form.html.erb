@@ -1,0 +1,19 @@
+<div id="idea_form">
+  <%= form_for(:idea, url: ideas_path) do |f|%>
+  <p>
+    <%= f.label :title %><br/>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :description %><br/>
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <% if @categories != nil %>
+    <% category_names = @categories.map {|category| [category.name]} %>
+    <%= select_tag 'categories', options_for_select(category_names) %>
+    <% end %>
+  </p>
+  <%= f.submit "Create" %>
+  <% end %>
+</div>

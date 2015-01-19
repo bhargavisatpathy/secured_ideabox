@@ -22,16 +22,15 @@ class UserIdeaTest < ActionDispatch::IntegrationTest
   test "an admin user can create a category" do
     admin_user = User.create(username: "protected",  password: "password", password_confirmation: "password", role: "admin")
     ApplicationController.any_instance.stubs(:current_user).returns(admin_user)
-    visit user_path(admin_user)
+    visit categories_path
     within("#admin") do
-      assert page.has_content?("Welcome protected")
+      assert page.has_content?("Welcome Admin")
     end
     fill_in "category[name]", with: "category1"
     click_button "Create Category"
     within("#flash_notice") do
       assert page.has_content?("You created a category")
     end
-    p categories
-    #assert categories.any?{ |category| category.name == "category1"}
+    assert Category.all.any?{ |category| category.name == "category1"}
   end
 end
