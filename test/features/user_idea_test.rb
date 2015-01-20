@@ -23,9 +23,6 @@ class UserIdeaTest < ActionDispatch::IntegrationTest
     admin_user = User.create(username: "protected",  password: "password", password_confirmation: "password", role: "admin")
     ApplicationController.any_instance.stubs(:current_user).returns(admin_user)
     visit categories_path
-    within("#admin") do
-      assert page.has_content?("Welcome Admin")
-    end
     fill_in "category[name]", with: "category1"
     click_button "Create Category"
     within("#flash_notice") do

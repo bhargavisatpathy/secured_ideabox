@@ -1,7 +1,9 @@
 <div id="catergory_list">
   <ul>
     <li>
-      <%= category.name %><br/>
+      <%= category.name %>
+      <%= link_to "Delete", category_path(category), method: :delete,
+      data: {confirm: "Really delete the category?"} %><br/>
     </li>
   </ul>
 </div>

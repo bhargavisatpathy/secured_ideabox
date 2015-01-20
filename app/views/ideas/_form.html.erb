@@ -9,10 +9,15 @@
     <%= f.text_area :description %>
   </p>
   <p>
-    <% if @categories != nil %>
-    <% category_names = @categories.map {|category| [category.name]} %>
-    <%= select_tag 'categories', options_for_select(category_names) %>
-    <% end %>
+    <%= f.label :category %>
+    <%= f.collection_select(:category_id, Category.all, :id, :name) %>
+  </p>
+  <p>
+    <%= f.label :images %><br/>
+  <% Image.all.each do |image|%>
+    <%= f.check_box("i_#{image.id}") %>
+    <%= f.label("i_#{image.id}", "#{image.name}") %>
+  <% end %>
   </p>
   <%= f.submit "Create" %>
   <% end %>

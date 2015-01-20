@@ -36,4 +36,12 @@ class IdeaTest < ActiveSupport::TestCase
     idea = Idea.create(attributes)
     assert_equal category, idea.category
   end
+
+  test "it can have many images" do
+    idea = Idea.create(valid_attributes)
+    idea.images.create(name: "image1", url: "https://flower.com")
+    idea.images.create(name: "image2", url: "https://animal.com")
+    images = idea.imagings.collect{|imaging| imaging.image}
+    assert ["image1", "image2"], images
+  end
 end

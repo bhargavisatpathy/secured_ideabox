@@ -1,0 +1,18 @@
+<div id="category_form">
+  <%= form_for(:image, url: images_path) do |f|%>
+  <p>
+    <%= f.label :name%><br/>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :url%><br/>
+    <%= f.text_field :url %>
+  </p>
+  <%= f.submit "Create Image" %>
+  <% end %>
+  <%= link_to "Back", user_path(current_user) %>
+</div>
+<% if @images != nil %>
+<h2> All images</h2>
+<%= render partial: 'images/image', collection: @images %>
+<% end %>

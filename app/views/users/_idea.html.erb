@@ -2,7 +2,9 @@
   <ul>
     <li>
       <%= idea.title %><br/>
-      <%= idea.description %><br/>
+      <%= idea.description %>
+      <%= link_to "Delete", idea_path(idea), method: :delete,
+      data: {confirm: "Really delete the idea?"} %><br/>
     </li>
   </ul>
 </div>

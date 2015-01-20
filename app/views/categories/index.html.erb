@@ -1,4 +1,3 @@
-<h1 id="admin"> Welcome Admin </h1>
 <div id="category_form">
   <%= form_for(:category, url: categories_path) do |f|%>
     <p>
@@ -13,6 +12,3 @@
   <h2> All categories</h2>
   <%= render partial: 'categories/category', collection: @categories %>
 <% end %>
-
-<!--<% category_names = @categories.map {|category| [category.name]} %>-->
-<!--<%= select_tag 'categories', options_for_select(category_names) %>-->
